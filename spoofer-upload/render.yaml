@@ -1,0 +1,12 @@
+# Render Blueprint — lets you deploy this whole app in a few clicks.
+# In Render: New + → "Blueprint" → pick your repo → it reads this file.
+services:
+  - type: web
+    name: spoofer
+    runtime: docker
+    # "free" sleeps after ~15 min idle (first visit then takes ~50s to wake).
+    # Change to "starter" (~$7/mo) to stay awake 24/7 with no cold start.
+    plan: free
+    envVars:
+      - key: APP_PASSWORD
+        sync: false   # you type the password in the Render dashboard (kept secret)
